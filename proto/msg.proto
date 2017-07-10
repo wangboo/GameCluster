@@ -1,0 +1,32 @@
+
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "Proto";
+
+import "msgid.proto";
+
+message P2CenterJoinRoom {
+    required string roomNo = 1;
+}
+
+message P2CenterMsg {
+
+    required MsgId msgId = 1;
+    required string from = 2;
+    optional int32 roleId = 3;
+
+    optional P2CenterJoinRoom joinRoom = 10;
+
+}
+
+message Gate2Match_MatchRoom {
+	required int32 roleid = 1;
+	required string name = 2;
+	required int32 gold = 3;
+}
+
+message Gate2MatchMsg {
+	required MsgId msgId = 1;
+	required string from = 2;
+
+	optional Gate2Match_MatchRoom matchroom = 3;
+}

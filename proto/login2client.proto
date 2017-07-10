@@ -1,0 +1,22 @@
+
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "L2cProto";
+
+import "msgid.proto";
+
+message C2LMessage {
+	required MsgId msgId = 1;
+}
+
+message L2CProxyInfoResp {
+	required int32 state = 1; // 0 正常工作，1维护中，2停服
+	optional string ip = 2;
+	optional int32 port = 3;
+	optional int32 count = 4;
+}
+
+message L2CMessage {
+	required MsgId msgId = 1;
+
+	optional L2CProxyInfoResp proxyInfoResp = 2;
+}

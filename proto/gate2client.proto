@@ -1,0 +1,21 @@
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "Gate2ClientProto";
+import "msgid.proto";
+
+message G2C_LoginResp {
+	required string token = 1;
+}
+
+message G2C_Talk {
+	required string msg = 1;
+	required int64 fromId = 2;
+	required string fromName = 3;
+}
+
+message Gate2ClientMsg {
+	required MsgId msgId = 1;
+	optional int32 result = 2;
+	
+	optional G2C_LoginResp loginResp = 10;
+	optional G2C_Talk talk = 11;
+}

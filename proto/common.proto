@@ -1,0 +1,53 @@
+
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "CommonProto";
+
+import "msgid.proto";
+import "gate2client.proto";
+
+
+// 通用应答
+message CommonHeartBeat {
+	required int32 key = 1;
+}
+
+// 通用心跳应答
+message CommonHeartBeatResp {
+	required int32 key = 1;
+}
+
+// 网关状态应答
+message CommonProxyStateResp {
+	required int32 connCount = 1; 	// 当前人数
+	required int32 queueCount = 2; 	// 网关处理队列排队数量
+	required string ip = 3;			// 外网ip
+	required int32 port = 4;		// 端口
+	required string subname = 5;	// 订阅名
+	required int32 connLimit = 6; 	// 预设连接上限
+}
+
+message CommonPlayerLeave {
+	required int64 userId = 1;
+	optional int32 table = 2;
+}
+
+message CommonTalk {
+	repeated int64 userId = 1;
+	required string msg = 2;
+	required int64 fromId = 3;
+	required string formName = 4;
+}
+
+message CommonMsg {
+	required MsgId msgId = 1;
+	optional string from = 2;
+	optional int64 at = 3;
+	optional int64 fromUserId = 4;
+
+	optional CommonHeartBeat commonHeartBeat = 10;
+	optional CommonHeartBeatResp commonHeartBeatResp = 11;
+	optional CommonProxyStateResp commonProxyStateResp = 12;
+	optional CommonPlayerLeave commonPlayerLeave = 13;
+	optional CommonTalk commontalk = 14;
+	optional Gate2ClientMsg g2cmsg = 15;
+}

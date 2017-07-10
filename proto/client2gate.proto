@@ -1,0 +1,16 @@
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "Client2GateProto";
+import "msgid.proto";
+
+message C2G_LoginMsg {
+	required string username = 1;
+	required string password = 2;
+	required int32 channel = 3; // 渠道 0 模拟器，1android，2ios
+}
+
+message Client2GateMsg {
+	required MsgId msgId = 1;
+	
+	optional C2G_LoginMsg loginMsg = 10;
+
+}

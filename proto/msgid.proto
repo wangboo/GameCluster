@@ -1,0 +1,27 @@
+
+option java_package = "com.wangboo.cluster.protocol";
+option java_outer_classname = "MsgIdProto";
+
+enum MsgId {
+	Common_HeartBeat = 1;
+	Common_HeartBeatResp = 2;
+	Common_ProxyStateQuery = 3;
+	Common_ProxyStateResp = 4;
+	Common_PlayerLeave = 5;
+	Common_talk = 6;
+	Common_g2cMsg = 7;
+
+	C2L_HeartBeat = 1001;
+	C2L_ProxyInfoQuery = 1002;
+
+	L2C_HeartBeat = 2001;
+	L2C_ProxyInfoResp = 2002;
+
+	Client2Gate_Login = 10001;
+
+	Gate2Client_LoginResp 	= 20001;
+	Gate2Client_Talk 		= 20002;
+
+    P2Center_JoinRoom   = 80001;
+    P2Center_LeaveRoom  = 80002;
+}
